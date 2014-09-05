@@ -1,0 +1,129 @@
+<!doctype html >
+<html lang="en" ng-app="en_US_finance_angjs_desk">
+<head>
+<meta charset="utf-8">
+<title>Finance</title>
+<link href='http://fonts.googleapis.com/css?family=Roboto:300'
+	rel='stylesheet' type='text/css'>
+<!-- <link href='http://fonts.googleapis.com/css?family=Finger+Paint'
+	rel='stylesheet' type='text/css'> -->
+
+<!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'> -->
+<!-- <link href='http://fonts.googleapis.com/css?family=Roboto:300' rel='stylesheet' type='text/css'> -->
+<link href="bower_components/fontawesome/css/font-awesome.min.css"
+	rel="stylesheet">
+<link rel="stylesheet"
+	href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+<!-- <script src="bower_components/jquery/dist/jquery.min.js"></script> -->
+<!-- <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script> -->
+
+<link rel="stylesheet" href="css/app.css">
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script src="bower_components/angular/angular.js"></script>
+<script
+	src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+<!-- <script src="bower_components/angular-route/angular-route.js"></script> -->
+<!-- <script src="bower_components/angular-animate.min.js"></script> -->
+<!-- <script src="bower_components/angular-resource/angular-resource.js"></script> -->
+
+
+<script src="js/app.js"></script>
+<script src="js/controllers.js"></script>
+<script src="js/filters.js"></script>
+
+</head>
+<body>
+
+	<div ng-controller="LoadCtrl">
+
+	
+		<div class="btn-group" dropdown is-open="status.isopen">
+			<button type="button" class="btn btn-primary btn-lg">Menu</button>
+			<button type="button" class="btn btn-primary dropdown-toggle btn-lg">
+				<span class="caret"></span>
+			</button>
+			<ul class="dropdown-menu" role="menu">
+
+				<li ng-repeat="rs in rss.Tabs" ng-click='selectRss(rs)'>
+				<a href>{{rs.Tab}}</a>
+				</li>
+
+
+			</ul>
+		</div>
+
+		<div class="row">
+
+			<div class="col-md-2">
+				<ul role="menu">
+
+					<li ng-repeat="clickmenu in left_menus.Menus"
+						ng-click='selectMenu(clickmenu)'>
+						<a href>{{clickmenu.Menu}}</a>
+					</li>
+
+
+				</ul>
+
+			</div>
+			<div class="col-md-8">
+
+				<div ng-if="!clickOnItem">
+
+					<div ng-repeat="item in items" ng-click='selectItem(item)'>
+						<div class="media">
+
+							<img class="media-object imgSmall200 pull-left"
+								ng-src={{item.ImgLink|t2tot1}} alt="">
+
+							<div class="media-body">
+								<div>{{item.PubDate |date:'mediumDate'}}</div>
+								<div>{{item.Title}}.</div>
+								<i class="fa fa-chevron-circle-right fa-2x"></i>
+
+
+
+							</div>
+
+						</div>
+
+					</div>
+				</div>
+
+				<div ng-if="clickOnItem">
+				
+											<div>{{selectedItem.PubDate |date:'mediumDate'}}</div>
+							<div>{{selectedItem.Title}}.</div>
+							<i class="fa fa-chevron-circle-right fa-2x"></i>
+
+					<div class="media">
+
+						<img class="media-object imgSmall200 pull-left"
+							ng-src={{selectedItem.ImgLink}} alt="">
+
+						<div data-ads class="media-body" >
+
+
+						</div>
+						<div>{{selectedItem.Cont}}</div>
+
+					</div>
+
+				</div>
+
+			</div>
+
+			<div class="col-md-2">
+			
+<div data-rightsideads></div>
+			
+			
+			</div>
+
+		</div>
+
+	</div>
+
+</body>
+
+</html>

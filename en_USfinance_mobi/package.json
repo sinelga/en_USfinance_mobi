@@ -1,0 +1,18 @@
+{
+  "version": "0.0.0",
+  "private": true,
+  "name": "en_US_finance_angjs_mobi",
+  "description": "en_US_finance_angjs_mobi",
+  "license": "MIT",
+  "devDependencies": {
+    "http-server": "latest",
+    "bower": "latest"
+  },
+  "scripts": {
+    "postinstall": "bower install",
+
+    "prestart": "npm install",
+    "start": "http-server -p 8000"
+
+  }
+}
